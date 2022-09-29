@@ -11,6 +11,7 @@ namespace CM.Infrastructure.Consul.Services
 
     using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Options;
+    using Microsoft.Extensions.Hosting;
 
     using System;
     using System.Net;
@@ -19,7 +20,7 @@ namespace CM.Infrastructure.Consul.Services
     using System.Net.Sockets;
     using System.Threading.Tasks;
 
-    internal class ConsulRegistrationService
+    internal class ConsulRegistrationService : IHostedService
     {
         private readonly string Default_HealthCheck_Endpoint = "/healthcheck";
         private readonly string Default_Address = "localhost";
