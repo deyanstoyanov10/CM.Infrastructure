@@ -20,7 +20,7 @@ namespace CM.Infrastructure.Consul
             => services
                     .Configure<ConsulConfiguration>(configuration.GetSection(nameof(ConsulConfiguration)))
                     .Configure<FabioConfiguration>(configuration.GetSection(nameof(FabioConfiguration)))
-                    .AddSingleton<IConsulClient>(consul => new ConsulClient(consulConfig =>
+                    .AddTransient<IConsulClient>(consul => new ConsulClient(consulConfig =>
                     {
                         var consulConfiguration = configuration.GetConsulConfiguration();
 
